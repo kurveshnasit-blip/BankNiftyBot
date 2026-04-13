@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://android.com">
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-
     <application
         android:label="BankNiftyBot"
         android:theme="@style/Theme.AppCompat.Light">
-        
-        <service 
-            android:name="com.example.tradingapp.TradingService" 
+        <service
+            android:name="com.example.tradingapp.TradingService"
             android:exported="false" />
-
         <activity
             android:name="com.example.tradingapp.MainActivity"
             android:exported="true">
