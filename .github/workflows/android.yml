@@ -14,12 +14,15 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Force Gradle 8.5 and Build
+      # This is the "Magic" step that forces Gradle 8.5 correctly
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: 8.5
+
+      - name: Build APK
         run: |
-          # This line is the most important: it replaces 9.4.1 with 8.5
-          gradle wrapper --gradle-version 8.5
-          chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon
+          gradle assembleDebug --no-daemon
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
